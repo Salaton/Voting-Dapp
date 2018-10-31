@@ -8,6 +8,7 @@ contract Election{
 	//constructor (Function with same name as contract)
 	function Election () public {
 		candidate = "Candidate 1";
-
 	}
+
+	
 }
