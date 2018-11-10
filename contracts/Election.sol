@@ -1,14 +1,28 @@
-pragma solidity ^0.4.2; //Version of solidity being used
+pragma solidity ^0.4.2;
 
-//declare a contract
-contract Election{
-	//store candidate
-	//read candidate
-	string public candidate;
-	//constructor (Function with same name as contract)
-	function Election () public {
-		candidate = "Candidate 1";
-	}
+contract Election {
+    // Model a Candidate
+    struct Candidate {
+        uint id;
+        string name;
+        uint voteCount;
+    }
 
-	
+    // Store Candidates
+    // Fetch Candidate
+    mapping(uint => Candidate) public candidates;
+    // Store Candidates Count
+    uint public candidatesCount;
+
+    function Election () public {
+        addCandidate("Elvis Salaton");
+        addCandidate("Ian Minara");
+    }
+
+//add candidate to a mapping 
+    function addCandidate (string _name) private {
+        candidatesCount ++;
+        candidates[candidatesCount] = Candidate(candidatesCount, _name, 0);
+    }
+
 }
